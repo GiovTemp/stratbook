@@ -1,0 +1,1 @@
+<title>StratPage</title>
