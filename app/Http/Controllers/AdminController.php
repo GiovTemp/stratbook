@@ -24,8 +24,7 @@ class AdminController extends Controller
         return view ('admin.maps.insert');
     }
 
-    public function AddMap(Request $request){
-        Map::create(['name' => $request -> name]);
+    public function DeleteMap(Map $map){
+        $map -> delete();
     }
-
 }

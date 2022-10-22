@@ -3,5 +3,5 @@
 <a href="{{route('admin.showAddMap')}}">Inserisci nuova mappa </a> <br>
 
 @foreach ($maps as $map)
-    {{$map -> name}}<br>
+    {{$map -> name}} <a href="{{route('admin.deleteMap', compact('map'))}}"><button>Elimina mappa dal roster</button></a> <br>
 @endforeach

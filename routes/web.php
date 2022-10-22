@@ -31,3 +31,5 @@ Route::get('/admin/maps', [AdminController::class, 'ShowMaps']) -> name('admin.s
 Route::get('/admin/maps/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
 
 Route::post('/admin/maps/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
+
+Route::get('/admin/maps/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
