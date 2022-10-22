@@ -16,8 +16,7 @@ class AdminController extends Controller
     }
 
     public function ShowMaps(){
-        $maps = Map::all();
-        return view ('admin.maps.dashboard', compact("maps"));
+        return view ('admin.maps.dashboard');
     }
 
     public function ShowInsertMap(){
@@ -26,5 +25,10 @@ class AdminController extends Controller
 
     public function DeleteMap(Map $map){
         $map -> delete();
+    }
+
+
+    public function showOperators(){
+        return view('admin.operators.dashboard');
     }
 }

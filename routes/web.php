@@ -24,12 +24,31 @@ Route::get('/home', [HomeController::class, 'Home']);
 
 Route::get('/dashboard', [UserController::class, 'Dashboard']);
 
-Route::get('/admin/dashboard', [AdminController::class, 'Dashboard']);
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'Dashboard']);
 
-Route::get('/admin/maps', [AdminController::class, 'ShowMaps']) -> name('admin.showMaps');
 
-Route::get('/admin/maps/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
+    Route::prefix('maps')->group(function () {
+        Route::get('/', [AdminController::class, 'ShowMaps']) -> name('admin.showMaps');
+    
+        Route::get('/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
+        
+        Route::post('/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
+        
+        Route::get('/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
+    });
 
-Route::post('/admin/maps/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
 
-Route::get('/admin/maps/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
+    Route::prefix('operators')->group(function () {
+        Route::get('/', [AdminController::class, 'ShowOperators']) -> name('admin.showOperators');
+    
+        // Route::get('/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
+        
+        // Route::post('/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
+        
+        // Route::get('/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
+    });
+    
+
+});
+
