@@ -29,3 +29,5 @@ Route::get('/admin/dashboard', [AdminController::class, 'Dashboard']);
 Route::get('/admin/maps', [AdminController::class, 'ShowMaps']) -> name('admin.showMaps');
 
 Route::get('/admin/maps/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
+
+Route::post('/admin/maps/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');

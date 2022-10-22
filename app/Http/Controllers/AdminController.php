@@ -24,4 +24,8 @@ class AdminController extends Controller
         return view ('admin.maps.insert');
     }
 
+    public function AddMap(Request $request){
+        Map::create(['name' => $request -> name]);
+    }
+
 }
