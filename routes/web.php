@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,11 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [HomeController::class, 'Home']);
+
+Route::get('/dashboard', [UserController::class, 'Dashboard']);
+
+Route::get('/admin/dashboard', [AdminController::class, 'Dashboard']);
+
+Route::get('/admin/maps', [AdminController::class, 'ShowMaps']) -> name('admin.showMaps');
+
+Route::get('/admin/maps/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
