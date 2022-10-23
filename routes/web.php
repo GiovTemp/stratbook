@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\GoogleLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,8 +48,22 @@ Route::prefix('admin')->group(function () {
         // Route::post('/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
         
         // Route::get('/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
-    });
-    
+    });  
+   
 
 });
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Google Routes
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    Route::get('auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
+    Route::get('auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+
+    Route::get('/prova', function () {
+        dd('ciao');
+    });

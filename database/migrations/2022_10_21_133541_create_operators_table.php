@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('armor');
             $table->string('speed');
-            $table->longText('primary');
-            $table->longText('secondary');
-            $table->longText('gadget');
-            $table->longText('ability');
+            $table->longText('primary')->nullable();
+            $table->longText('secondary')->nullable();
+            $table->longText('gadget')->nullable();
+            $table->longText('ability')->nullable();
             $table->timestamps();
         });
 

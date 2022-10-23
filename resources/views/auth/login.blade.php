@@ -17,3 +17,8 @@
     <label class="form-check-label" for="exampleCheck1">Remember</label>
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
+
+</form>
+
+    <a href="{{ url('auth/google') }}">Login with google</a>
+    
