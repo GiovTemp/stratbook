@@ -11,9 +11,9 @@ class InsertOperator extends Component{
     public $armor;
 
     protected $rules = [
-        'name' => 'required|unique:maps|min:4',
-        'speed' => 'required|unique:maps|min:4',
-        'armor' => 'required|unique:maps|min:4'
+        'name' => 'required|unique:operators|min:4',
+        'speed' => 'required|integer',
+        'armor' => 'required|integer'
     ];
 
     /*TODO: only char in name */
@@ -25,7 +25,7 @@ class InsertOperator extends Component{
 
     public function save(){
         $this -> validate();
-        Operator::create(['name' => $this -> name]);
+        Operator::create(['name' => $this -> name, 'armor' => $this -> armor, 'speed' => $this -> speed]);
     }
 
     public function updated($propertyName){
