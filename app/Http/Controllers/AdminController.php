@@ -34,4 +34,8 @@ class AdminController extends Controller
     public function ShowInsertOperator(){
         return view ('admin.operators.insert');
     }
+
+    public function ShowEditMap(Map $map){
+        return view ('admin.maps.edit', ['map'=>$map]);
+    }
 }

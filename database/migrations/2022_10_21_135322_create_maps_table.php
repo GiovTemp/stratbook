@@ -17,6 +17,9 @@ return new class extends Migration
         Schema::create('maps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->longText('images')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('year')->nullable();
             $table->timestamps();
         });
 

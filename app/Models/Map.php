@@ -11,5 +11,8 @@ class Map extends Model
 
     protected $fillable=[
         'name',
+        'images',
+        'description',
+        'year'
     ];
 }
