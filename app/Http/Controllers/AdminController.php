@@ -27,8 +27,11 @@ class AdminController extends Controller
         $map -> delete();
     }
 
-
     public function showOperators(){
         return view('admin.operators.dashboard');
+    }
+
+    public function ShowInsertOperator(){
+        return view ('admin.operators.insert');
     }
 }

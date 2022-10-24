@@ -41,9 +41,9 @@ Route::prefix('admin')->group(function () {
 
 
     Route::prefix('operators')->group(function () {
-        Route::get('/', [AdminController::class, 'ShowOperators']) -> name('admin.showOperators');
+        Route::get('/', [AdminController::class, 'showOperators']) -> name('admin.showOperators');
     
-        // Route::get('/insert', [AdminController::class, 'ShowInsertMap']) -> name('admin.showAddMap');
+        Route::get('/insert', [AdminController::class, 'ShowInsertOperator']) -> name('admin.showAddOperator');
         
         // Route::post('/insert', [AdminController::class, 'AddMap']) -> name('admin.addMap');
         
