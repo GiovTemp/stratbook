@@ -17,32 +17,44 @@ return new class extends Migration
         Schema::create('operators', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('armor');
-            $table->string('speed');
-            $table->longText('primary')->nullable();
-            $table->longText('secondary')->nullable();
-            $table->longText('gadget')->nullable();
+            $table->string('badge');
+            $table->string('image');
+            $table->longText('bio')->nullable();
             $table->longText('ability')->nullable();
+            $table->string('armor_rating');
+            $table->string('speed_rating');
+            $table->string('type');
+            $table->string('organization');
+            $table->longText('gadgets')->nullable();
+            $table->longText('primaries')->nullable();
+            $table->longText('secondaries')->nullable();
             $table->timestamps();
         });
 
         $operators = json_decode(Storage::disk('local')->get('json/operators.json'));
-        $abilities =  json_decode(Storage::disk('local')->get('json/ability.json'));
-        $arr = [];
+        // $abilities =  json_decode(Storage::disk('local')->get('json/ability.json'));
+        // $arr = [];
 
-        foreach ( $abilities as $obj ){
-            $arr[$obj->_id] = json_encode($obj);    
-        }
+        // foreach ( $abilities as $obj ){
+        //     $arr[$obj->_id] = json_encode($obj);    
+        // }
 
         foreach ($operators as $operator) {
             Operator::create([
                 'name' => $operator->name,
-                'speed' =>$operator->speed_rating,
-                'armor' =>$operator->armor_rating,
-                'primary' => json_encode($operator->primaries),
-                'secondary' => json_encode($operator->secondaries),
-                'gadget' => json_encode($operator->gadgets),
-                'ability' => json_encode($arr[$operator->ability]),
+                'image' => $operator->image,
+                'badge' => $operator->badge,
+                'bio' => $operator->bio,
+                'ability' => $operator->ability,
+                'armor_rating' =>$operator->armor_rating,
+                'speed_rating' =>$operator->speed_rating,
+                'type' => $operator->type,
+                'organization' => $operator->organization,
+                'gadgets' => json_encode($operator->gadgets),
+                'primaries' => json_encode($operator->primaries),
+                'secondaries' => json_encode($operator->secondaries),
+
+
             ]);
         }
 

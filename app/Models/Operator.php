@@ -11,12 +11,19 @@ class Operator extends Model
     
     protected $fillable =[ 
         'name',
-        'speed',
-        'armor',
-        'gadget',
-        'primary',
-        'secondary',
-        'ability'
+        'badge',
+        'image',
+        'bio',
+        'ability',
+        'armor_rating',
+        'speed_rating',
+        'type',
+        'organization',
+        'gadgets',
+        'primaries',
+        'secondaries',
+
+
     ];
     
 }
