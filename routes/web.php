@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\FacebookLoginController;
 use App\Http\Controllers\Auth\GoogleLoginController;
 
 /*
@@ -63,6 +64,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('auth/google', [GoogleLoginController::class, 'redirectToGoogle']);
     Route::get('auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
+
+    Route::get('auth/facebook', [FacebookLoginController::class, 'facebookRedirect']);
+    Route::get('auth/facebook/callback', [FacebookLoginController::class, 'loginWithFacebook']);
 
     Route::get('/prova', function () {
         dd('ciao');
