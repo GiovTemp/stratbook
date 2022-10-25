@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Map;
+use App\Models\Operator;
+use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -37,5 +38,9 @@ class AdminController extends Controller
 
     public function ShowEditMap(Map $map){
         return view ('admin.maps.edit', ['map'=>$map]);
+    }
+    
+    public function showEditOperator(Operator $operator){
+        return view('admin.operators.edit',['operator'=>$operator]);
     }
 }

@@ -201,6 +201,9 @@ return [
         //Socialite
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        //Avatar
+        Laravolt\Avatar\ServiceProvider::class
+
     ],
 
 
@@ -218,6 +221,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Avatar'    => Laravolt\Avatar\Facade::class,
     ])->toArray(),
 
 ];

@@ -5,6 +5,6 @@
 
 <a href="{{route('admin.showAddOperator')}}">Aggiungi Operatore</a> <br>
     @foreach ($operators as $operator)
-        {{$operator->name}}<br>
+        {{$operator->name}} <a href="{{ route('admin.showEditOperator', $operator) }}">Modifica</a> <br>
     @endforeach
 @endsection
