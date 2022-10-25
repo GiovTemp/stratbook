@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Exception;
 use App\Models\User;
 
+use Avatar;
+use File;
 
 class GoogleLoginController extends Controller
 {
@@ -44,9 +46,18 @@ class GoogleLoginController extends Controller
                     'google_id'=> $user->id,
                     'password' => encrypt('')
                 ]);  
-                $newUser->save();
+
+                $dir = storage_path() . "/app/public/avatars/{$newUser->id}/";
+                File::makeDirectory($dir);
+        
+                $file = "/avatars/{$newUser->id}/{$newUser->name}_avatar.png";
+        
+                Avatar::create($user->name)->save( "{$dir}{$newUser->name}_avatar.png", 100);
+                $newUser->update(['avatar' => $file]);
+        
                 //login as the new user
                 Auth::login($newUser);
+                
                 // go to the dashboard
                 return redirect('/dashboard');
             }

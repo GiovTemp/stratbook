@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
-use Validator;
 use Exception;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
+
+use Avatar;
+use File;
+
 
 class FacebookLoginController extends Controller
 {
@@ -33,8 +35,17 @@ class FacebookLoginController extends Controller
                     'fb_id' => $user->id,
                     'password' => encrypt('')
                 ]);
+
+                $dir = storage_path() . "/app/public/avatars/{$createUser->id}/";
+                File::makeDirectory($dir);
+        
+                $file = "/avatars/{$createUser->id}/{$createUser->name}_avatar.png";
+        
+                Avatar::create($user->name)->save( "{$dir}{$createUser->name}_avatar.png", 100);
+                $createUser->update(['avatar' => $file]);
     
                 Auth::login($createUser);
+
                 return redirect('/dashboard');
             }
     

@@ -9,7 +9,14 @@
 </head>
 <body>
     <nav>
-        <img src="{{url('storage/'.Auth::user()->avatar)}}">
+        <img src="{{url('storage/'.Auth::user()->avatar)}}" style="width: 30px;">     
+
+        <!--Logout-->
+        <a class="" href="/logout" onclick="event.preventDefault();getElementById('form-logout').submit()">Logout</a>
+
+        <form id="form-logout" action="{{ route('logout')}}" method="POST" class="d-none">
+            @csrf
+        </form>
     </nav>
     @yield('content')
     @livewireScripts
