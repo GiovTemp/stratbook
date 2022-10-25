@@ -8,6 +8,9 @@
     @livewireStyles
 </head>
 <body>
+    <nav>
+        <img src="{{url('storage/'.Auth::user()->avatar)}}">
+    </nav>
     @yield('content')
     @livewireScripts
 </body>

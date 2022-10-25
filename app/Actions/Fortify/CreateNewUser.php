@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
+use Avatar;
+use File;
+
 class CreateNewUser implements CreatesNewUsers
 {
     use PasswordValidationRules;
@@ -32,10 +35,23 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        return User::create([
+            
+
+
+        $user= User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
+
+        $dir = storage_path() . "/app/public/avatars/{$user->id}/";
+        File::makeDirectory($dir);
+
+        $file = "/avatars/{$user->id}/{$user->name}_avatar.png";
+
+        Avatar::create($user->name)->save( "{$dir}{$user->name}_avatar.png", 100);
+        $user->update(['avatar' => $file]);
+
+        return $user;
     }
 }
