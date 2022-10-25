@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Secondary extends Model
 {
     use HasFactory;
+    
     protected $fillable =[ 
         '_id',
         'firemodes',

@@ -40,6 +40,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{map}', [AdminController::class, 'ShowEditMap']) -> name('admin.editMap');
 
         Route::get('/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
+        
     });
 
 
