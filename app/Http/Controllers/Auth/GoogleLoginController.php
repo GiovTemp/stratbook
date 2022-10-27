@@ -64,7 +64,6 @@ class GoogleLoginController extends Controller
             //catch exceptions
         } catch (Exception $e) {
             dd($e->getMessage());
-
             //TODO Gestire errori duplicate email e altri 
         }
     }

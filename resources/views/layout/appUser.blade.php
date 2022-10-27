@@ -9,6 +9,7 @@
 </head>
 <body>
     <nav>
+        {{Auth::user()->name}}
         <img src="{{url('storage/'.Auth::user()->avatar)}}" style="width: 30px;">     
 
         <!--Logout-->

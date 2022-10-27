@@ -30,24 +30,24 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $primaries = json_decode(Storage::disk('local')->get('json/weapons.json'));
+        // $primaries = json_decode(Storage::disk('local')->get('json/weapons.json'));
 
-        foreach ($primaries as $primary){
-            if($primary->assignment == 'primary'){
-                Primary::create([
-                    'firemodes' => $primary -> firemodes,
-                    'sights' => $primary -> sights,
-                    'barrels' => $primary -> barrels,
-                    'grips' => $primary -> grips,
-                    'underbarrels' => $primary->underbarrels,
-                    '_id' => $primary -> _id,
-                    'name' => $primary -> name,
-                    'image' => $primary -> image,
-                    'type' => $primary -> type,
-                    '__v' => $primary -> __v,
-                ]);
-            }
-        }
+        // foreach ($primaries as $primary){
+        //     if($primary->assignment == 'primary'){
+        //         Primary::create([
+        //             'firemodes' => $primary -> firemodes,
+        //             'sights' => $primary -> sights,
+        //             'barrels' => $primary -> barrels,
+        //             'grips' => $primary -> grips,
+        //             'underbarrels' => $primary->underbarrels,
+        //             '_id' => $primary -> _id,
+        //             'name' => $primary -> name,
+        //             'image' => $primary -> image,
+        //             'type' => $primary -> type,
+        //             '__v' => $primary -> __v,
+        //         ]);
+        //     }
+        // }
     
     }
 
