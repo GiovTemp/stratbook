@@ -9,6 +9,7 @@ class InsertOperator extends Component{
     public $name;
     public $speed;
     public $armor;
+    public $idAbility;
 
     protected $rules = [
         'name' => 'required|unique:operators|min:4',
@@ -25,6 +26,7 @@ class InsertOperator extends Component{
 
     public function save(){
         $this -> validate();
+              
         Operator::create(['name' => $this -> name, 'armor' => $this -> armor, 'speed' => $this -> speed]);
     }
 

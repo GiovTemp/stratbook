@@ -43,4 +43,8 @@ class AdminController extends Controller
     public function showEditOperator(Operator $operator){
         return view('admin.operators.edit',['operator'=>$operator]);
     }
+
+    public function showAbilities(){
+        return view('admin.abilities.dashboard');
+    }
 }

@@ -55,6 +55,12 @@ Route::prefix('admin')->group(function () {
         
         // Route::get('/delete/{map}', [AdminController::class, 'DeleteMap']) -> name('admin.deleteMap');
     });  
+
+    Route::prefix('abilities')->group(function () {
+        Route::get('/', [AdminController::class, 'showAbilities']) -> name('admin.showAbilities');
+    
+        
+    });  
    
 
 });

@@ -14,7 +14,7 @@ class Operator extends Model
         'badge',
         'image',
         'bio',
-        'ability',
+        'ability_id',
         'armor_rating',
         'speed_rating',
         'type',
@@ -26,4 +26,8 @@ class Operator extends Model
 
     ];
     
+    public function ability()
+    {
+        return $this->belongsTo(Ability::class);
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Ability;
 use App\Models\Operator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,10 +18,10 @@ return new class extends Migration
         Schema::create('operators', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('badge');
-            $table->string('image');
+            $table->string('badge')->nullable();
+            $table->string('image')->nullable();
             $table->longText('bio')->nullable();
-            $table->longText('ability')->nullable();
+            $table->foreignId('ability_id')->constrained();            
             $table->string('armor_rating');
             $table->string('speed_rating');
             $table->string('type');
@@ -45,7 +46,7 @@ return new class extends Migration
                 'image' => $operator->image,
                 'badge' => $operator->badge,
                 'bio' => $operator->bio,
-                'ability' => $operator->ability,
+                'ability_id' => Ability::where('_id','=',$operator->ability)->first()['id'],
                 'armor_rating' =>$operator->armor_rating,
                 'speed_rating' =>$operator->speed_rating,
                 'type' => $operator->type,

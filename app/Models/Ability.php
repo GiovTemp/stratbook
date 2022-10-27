@@ -16,4 +16,9 @@ class Ability extends Model
         'uses',
         '__v'
     ];
+
+    public function operator()
+    {
+        return $this->hasOne(Operator::class);
+    }
 }
