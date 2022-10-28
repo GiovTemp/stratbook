@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function __construct(){
-        $this -> middleware(['auth', 'is_admin']);
+        //$this -> middleware(['auth', 'is_admin']);
     }
 
     public function Dashboard(){
