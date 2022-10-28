@@ -16,12 +16,12 @@ return new class extends Migration
     {
         Schema::create('abilities', function (Blueprint $table) {
             $table->id();
-            $table->string('_id');
+            $table->string('_id') -> nullable();
             $table->string('name');
             $table->longText('description');
             $table->string('image');
             $table->integer('uses');
-            $table->integer('__v');
+            $table->integer('__v') -> nullable();
             $table->timestamps();
         });
 

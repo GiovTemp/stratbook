@@ -22,11 +22,11 @@ return new class extends Migration
             $table->longText('barrels');
             $table->longText('grips');
             $table->longText('underbarrel');
-            $table->string('_id');
+            $table->string('_id') -> nullable();
             $table->string('name');
             $table->string('image');
             $table->string('type');
-            $table->integer('__v');
+            $table->integer('__v') -> nullable();
             $table->timestamps();
         });
 

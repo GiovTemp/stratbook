@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('gadgets', function (Blueprint $table) {
             $table->id();
-            $table->string('_id');
+            $table->string('_id') -> nullable();
             $table->string('name');
             $table->string('description');
             $table->string('image');
             $table->string('type');
             $table->integer('uses');
-            $table->integer('__v');
+            $table->integer('__v') -> nullable();
             $table->timestamps();
         });
     }

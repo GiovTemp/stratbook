@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Map;
+use App\Models\Ability;
 use App\Models\Operator;
 use Illuminate\Http\Request;
 
@@ -46,5 +47,9 @@ class AdminController extends Controller
 
     public function showAbilities(){
         return view('admin.abilities.dashboard');
+    }
+
+    public function ShowInsertAbilities(Ability $ability){
+        return view('admin.abilities.insert');
     }
 }
