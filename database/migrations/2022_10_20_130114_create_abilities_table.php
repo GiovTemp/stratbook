@@ -24,20 +24,7 @@ return new class extends Migration
             $table->integer('__v') -> nullable();
             $table->timestamps();
         });
-
-   $abilities = json_decode(Storage::disk('local')->get('json/ability.json'));
-
-    foreach($abilities as $ability){
-        Ability::create([
-            '_id' => $ability->_id,
-            'name' => $ability->name,
-            'description' => $ability->description,
-            'image' => $ability->image,
-            'uses' => $ability->uses,
-            '__v' => $ability -> __v,
-        ]);
-    }
-
+        
 }
 
     /**

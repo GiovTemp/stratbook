@@ -13,7 +13,7 @@ class Gadget extends Model
         'name',
         'description',
         'image',
-        'type',
+        'assignment',
         'uses',
         '__v'
     ];

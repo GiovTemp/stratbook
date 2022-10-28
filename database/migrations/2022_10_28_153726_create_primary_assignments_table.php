@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gadgets', function (Blueprint $table) {
+        Schema::create('primary_assignments', function (Blueprint $table) {
             $table->id();
-            $table->string('_id') -> nullable();
-            $table->string('name');
-            $table->longText('description');
-            $table->string('image');
-            $table->string('assignment');
-            $table->integer('uses');
-            $table->integer('__v') -> nullable();
+            $table->foreignId('operator_id')->constrained()->onDelete('cascade');
+            $table->foreignId('primary_id')->constrained();
             $table->timestamps();
         });
-
-
     }
 
     /**
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gadgets');
+        Schema::dropIfExists('primary_assignments');
     }
 };

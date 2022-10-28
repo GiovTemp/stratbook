@@ -81,6 +81,4 @@ Route::prefix('admin')->group(function () {
     Route::get('auth/facebook', [FacebookLoginController::class, 'facebookRedirect']);
     Route::get('auth/facebook/callback', [FacebookLoginController::class, 'loginWithFacebook']);
 
-    Route::get('/prova', function () {
-        dd('ciao');
-    });
+    Route::get('/prova', [HomeController::class,'prova']);

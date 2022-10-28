@@ -23,10 +23,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $maps = json_decode(Storage::disk('local')->get('json/maps.json')) -> maps;
-        foreach ($maps as $map) {
-            Map::create(['name' => $map]);
-        }
+
     }
 
     /**

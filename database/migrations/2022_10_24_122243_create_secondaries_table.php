@@ -30,24 +30,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        $secondaries = json_decode(Storage::disk('local')->get('json/weapons.json'));
-
-        foreach ($secondaries as $secondary){
-            if($secondary->assignment == 'secondary'){
-                Secondary::create([
-                    'firemodes' => json_encode($secondary -> firemodes),
-                    'sights' => json_encode($secondary -> sights),
-                    'barrels' => json_encode($secondary -> barrels),
-                    'grips' => json_encode($secondary -> grips),
-                    'underbarrel' => json_encode($secondary-> underbarrel),
-                    '_id' => $secondary -> _id,
-                    'name' => $secondary -> name,
-                    'image' => $secondary -> image,
-                    'type' => $secondary -> type,
-                    '__v' => $secondary -> __v,
-                ]);
-            }
-        }
+        
     }
 
     /**
