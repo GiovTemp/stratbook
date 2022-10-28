@@ -30,4 +30,37 @@ class Operator extends Model
     {
         return $this->belongsTo(Ability::class);
     }
+
+    /**
+     * Get all of the Primaries for the Operator
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function primaries() 
+    {
+        return $this->belongsToMany(Primary::class);
+    }
+
+        /**
+     * Get all of the Primaries for the Operator
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function secondaries() 
+    {
+        return $this->belongsToMany(Secondary::class);
+    }
+
+        /**
+     * Get all of the Primaries for the Operator
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+
+    public function gadgets() 
+    {
+        return $this->belongsToMany(Gadget::class);
+    }
+
 }

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('secondary_assignments', function (Blueprint $table) {
+        Schema::create('operator_secondary', function (Blueprint $table) {
             $table->id();
             $table->foreignId('operator_id')->constrained()->onDelete('cascade');
             $table->foreignId('secondary_id')->constrained();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secondary_assignments');
+        Schema::dropIfExists('operator_secondary');
     }
 };

@@ -17,4 +17,8 @@ class Gadget extends Model
         'uses',
         '__v'
     ];
+
+    public function operators(){
+        return $this->belongsToMany(Operator::class);
+    }
 }

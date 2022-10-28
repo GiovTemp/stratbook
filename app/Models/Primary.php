@@ -21,4 +21,8 @@ class Primary extends Model
         'type',
         '__v'
     ];
+
+    public function operators(){
+        return $this->belongsToMany(Operator::class);
+    }
 }

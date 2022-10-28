@@ -24,35 +24,5 @@ class HomeController extends Controller {
     
     public function prova(){
 
-        $operators = json_decode(Storage::disk('local')->get('json/operators.json'));
-
-
-
-        foreach ($operators as $operator) {
-            $temp = Operator::create([
-                'name' => $operator->name,
-                'image' => $operator->image,
-                'badge' => $operator->badge,
-                'bio' => $operator->bio,
-                'ability_id' => Ability::where('_id','=',$operator->ability)->first()['id'],
-                'armor_rating' =>$operator->armor_rating,
-                'speed_rating' =>$operator->speed_rating,
-                'type' => $operator->type,
-                'organization' => $operator->organization,
-            ]);
-
-            foreach($operator->gadgets as $gadget){
-
-                Gadget_Assignment::create([
-                    'operator_id'=>'1',
-                    'gadget_id'=>'1'
-                ]);
-            }
-
-
-
-
-        }
-
     }
 }

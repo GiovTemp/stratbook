@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gadget_Assignment extends Model
 {
     use HasFactory;
-    protected $table = 'gadgets_assignments';
+    protected $table = 'gadget_operator';
     protected $fillable =[ 
         'operator_id',
         'gadget_id'

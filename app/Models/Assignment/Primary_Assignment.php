@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Primary_Assignment extends Model
 {
     use HasFactory;
-    protected $table = 'primary_assignments';
+    protected $table = 'operator_primary';
     protected $fillable =[ 
         'operator_id',
         'primary_id'
