@@ -1,4 +1,4 @@
-@extends('layout.appUser')
+@extends('layout.appAdmin')
 @section('content')
 
 <h1>Dashboard Operatori</h1>
