@@ -10,6 +10,6 @@
     <input type="text" wire:model.lazy='organization'><br>
 
 
-    <button wire:click="edit()">Edit</button>
+    <button wire:click="edit()">Modifica</button>
 
 </div>

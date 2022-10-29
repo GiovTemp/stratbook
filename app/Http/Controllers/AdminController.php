@@ -52,4 +52,8 @@ class AdminController extends Controller
     public function ShowInsertAbilities(Ability $ability){
         return view('admin.abilities.insert');
     }
+
+    public function ShowEditAbility(Ability $ability){
+        return view ('admin.abilities.edit', ['ability'=>$ability]);
+    }
 }

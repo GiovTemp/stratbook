@@ -6,6 +6,7 @@
 
 @foreach ($abilities as $ability)
     {{$ability -> name}} associata a  {{$ability->operator->name ?? 'operatore non assegnato'}}<br>
+    <a href="{{route('admin.editAbility', $ability)}}"><button>Modifica abilità</button></a> <br>
 @endforeach
 
 @endsection

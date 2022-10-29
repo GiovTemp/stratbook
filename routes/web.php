@@ -60,6 +60,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'showAbilities']) -> name('admin.showAbilities');
 
         Route::get('/insert', [AdminController::class, 'ShowInsertAbilities']) -> name('admin.showAddAbilities');
+
+        Route::get('/edit/{ability}', [AdminController::class, 'ShowEditAbility'])->name('admin.editAbility');
     
         
     });  
