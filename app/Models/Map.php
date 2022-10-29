@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Images\MapImage;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Map extends Model
 {
@@ -15,4 +16,9 @@ class Map extends Model
         'description',
         'year'
     ];
+
+    public function Images()
+    {
+        return $this->belongsTo(MapImage::class);
+    }
 }
