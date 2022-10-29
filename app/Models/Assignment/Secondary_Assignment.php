@@ -9,6 +9,7 @@ class Secondary_Assignment extends Model
 {
     use HasFactory;
     protected $table = 'operator_secondary';
+    public $timestamps = false;
     protected $fillable =[ 
         'operator_id',
         'secondary_id'

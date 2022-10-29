@@ -9,6 +9,7 @@ class Primary_Assignment extends Model
 {
     use HasFactory;
     protected $table = 'operator_primary';
+    public $timestamps = false;
     protected $fillable =[ 
         'operator_id',
         'primary_id'

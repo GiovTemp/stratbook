@@ -42,7 +42,7 @@ class Operator extends Model
     }
 
         /**
-     * Get all of the Primaries for the Operator
+     * Get all of the Secondaries for the Operator
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -53,7 +53,7 @@ class Operator extends Model
     }
 
         /**
-     * Get all of the Primaries for the Operator
+     * Get all of the Gadgets for the Operator
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

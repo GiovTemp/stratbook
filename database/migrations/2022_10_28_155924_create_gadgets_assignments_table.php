@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('operator_id')->constrained()->onDelete('cascade');
             $table->foreignId('gadget_id')->constrained();
-            $table->timestamps();
         });
     }
 
