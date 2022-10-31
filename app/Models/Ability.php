@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Images\AbilityImage;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Ability extends Model
 {
@@ -12,7 +13,7 @@ class Ability extends Model
         '_id',
         'name',
         'description',
-        'image',
+        'images',
         'uses',
         '__v'
     ];
@@ -20,5 +21,10 @@ class Ability extends Model
     public function operator()
     {
         return $this->hasOne(Operator::class);
+    }
+
+    public function Images_ab()
+    {
+        return $this->belongsTo(AbilityImage::class);
     }
 }
