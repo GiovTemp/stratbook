@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Map;
 use App\Models\Ability;
+use App\Models\Primary;
 use App\Models\Operator;
 use Illuminate\Http\Request;
 
@@ -55,5 +56,17 @@ class AdminController extends Controller
 
     public function ShowEditAbility(Ability $ability){
         return view ('admin.abilities.edit', ['ability'=>$ability]);
+    }
+
+    public function showPrimaries(Primary $primary){
+        return view('admin.primaries.dashboard');
+    }
+
+    public function showInsertPrimaries(Primary $primary){
+        return view('admin.primaries.insert');
+    }
+
+    public function showEditPrimary(Primary $primary){
+        return view('admin.primaries.edit', ['primary'=>$primary]);
     }
 }

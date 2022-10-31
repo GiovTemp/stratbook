@@ -64,8 +64,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{ability}', [AdminController::class, 'ShowEditAbility'])->name('admin.editAbility');
     
         
-    });  
-   
+    });
+    
+    Route::prefix('primaries')->group(function(){
+        Route::get('/', [AdminController::class, 'showPrimaries']) -> name('admin.showPrimaries');
+
+        Route::get('/insert', [AdminController::class, 'showInsertPrimaries']) -> name('admin.showAddPrimaries');
+
+        Route::get('/edit/{primary}', [AdminController::class, 'showEditPrimary']) -> name('admin.showEditPrimary');
+    });
 
 });
 

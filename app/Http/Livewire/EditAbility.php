@@ -8,7 +8,6 @@ use Livewire\Component;
 class EditAbility extends Component
 {
     public $ability;
-
     public $name;
     public $description;
     public $images;
