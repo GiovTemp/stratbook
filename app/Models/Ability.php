@@ -23,7 +23,7 @@ class Ability extends Model
         return $this->hasOne(Operator::class);
     }
 
-    public function Images_ab()
+    public function images()
     {
         return $this->belongsTo(AbilityImage::class);
     }

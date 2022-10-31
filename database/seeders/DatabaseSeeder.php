@@ -16,6 +16,7 @@ use App\Models\Assignment\Gadget_Assignment;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Assignment\Primary_Assignment;
 use App\Models\Assignment\Secondary_Assignment;
+use App\Models\Images\AbilityImage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -67,14 +68,15 @@ class DatabaseSeeder extends Seeder
         $abilities = json_decode(Storage::disk('local')->get('json/ability.json'));
 
         foreach($abilities as $ability){
-            Ability::create([
+            $a=Ability::create([
                 '_id' => $ability->_id,
                 'name' => $ability->name,
                 'description' => $ability->description,
-                'image' => $ability->image,
                 'uses' => $ability->uses,
                 '__v' => $ability -> __v,
             ]);
+
+            $a->images()->create(['path'=>$ability->image , 'ability_id'=>$a->id]);
         }
     
 
