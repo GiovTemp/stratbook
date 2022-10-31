@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Primary;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -25,6 +26,7 @@ class InsertPrimary extends Component
         'firemodes' => 'required',
         'image' => 'required',
         'underbarrel' => 'required',
+        'barrels'=>'required'
     ];
 
     public function render()
@@ -34,6 +36,7 @@ class InsertPrimary extends Component
 
     public function save(){
         $this -> validate();
+
         Primary::create(['name' => $this -> name, 
                          'type' => $this -> type, 
                          'sights' => $this -> sights,
