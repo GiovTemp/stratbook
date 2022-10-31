@@ -17,8 +17,17 @@ class EditOperator extends Component
     public $speed_rating;
     public $type;
     public $organization;
-    public $gadgets;
 
+
+    public $idAbility;
+
+    public $idPrimary;
+    public $idSecondary;
+    public $idGadget;
+
+    public $selectedPrimaries=[];
+    public $selectedSecondaries=[];
+    public $selectedGadgets=[];
 
 
     public function edit(){
@@ -38,9 +47,6 @@ class EditOperator extends Component
         $this->type = $this->operator->type;
         $this->organization = $this->operator->organization;
         $this->gadgets = $this->operator->gadgets;
-
-
-
 
         return view('livewire.edit-operator');
     }

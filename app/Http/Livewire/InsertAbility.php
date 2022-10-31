@@ -29,7 +29,11 @@ class InsertAbility extends Component {
 
     public function save(){
         $this -> validate();
-        Ability::create(['name' => $this -> name, 'uses' => $this -> uses, 'description' => $this -> description, $this->image->storeAs('ability_images', $this -> name.'.'.$this->image->getClientOriginalExtension())]);
+        try {
+            Ability::create(['name' => $this -> name, 'uses' => $this -> uses, 'description' => $this -> description, $this->image->storeAs('ability_images', $this -> name.'.'.$this->image->getClientOriginalExtension())]);
+        } catch (\Throwable $th) {
+           dd($th);
+        }
     }
 
     public function updated($propertyName){

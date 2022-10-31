@@ -4,13 +4,20 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Operator;
+use Livewire\WithFileUploads;
 
 class InsertOperator extends Component{
+    use WithFileUploads;
+
     public $name;
     public $speed;
     public $armor;
     public $bio;
     public $type;
+
+    public $image;
+    public $badge;
+
     public $org;          
     public $idAbility;
 
@@ -37,24 +44,32 @@ class InsertOperator extends Component{
 
     public function save(){
         $this -> validate();
-        $o=Operator::create(['name' => $this -> name, 
-                            'armor_rating' => $this -> armor, 
-                            'speed_rating' => $this -> speed,
-                            'bio' => $this->bio,
-                            'type' => $this->type,
-                            'organization' => $this->org,
-                            'ability_id'=>$this->idAbility]);
 
-        foreach($this->selectedPrimaries as $primary){
-            $o->primaries()->attach(json_decode($primary)->id);
+        try {
+            $o=Operator::create(['name' => $this -> name, 
+            'armor_rating' => $this -> armor, 
+            'speed_rating' => $this -> speed,
+            'bio' => $this->bio,
+            'type' => $this->type,
+            'organization' => $this->org,
+            'image'=>$this->image->storeAs( $this -> name,'public/images_'.$this -> name.'.'.$this->image->getClientOriginalExtension()),
+            'badge'=>$this->badge->storeAs($this -> name,'public/badges_'.$this -> name.'.'.$this->image->getClientOriginalExtension()),
+            'ability_id'=>$this->idAbility]);
+
+            foreach($this->selectedPrimaries as $primary){
+                $o->primaries()->attach(json_decode($primary)->id);
+            }
+
+            foreach($this->selectedSecondaries as $secondary){
+                $o->secondaries()->attach(json_decode($secondary)->id);
+            }
+            foreach($this->selectedGadgets as $gadget){
+                $o->gadgets()->attach(json_decode($gadget)->id);
+            }
+        } catch (\Throwable $th) {
+            dd($th);
         }
 
-        foreach($this->selectedSecondaries as $secondary){
-            $o->secondaries()->attach(json_decode($secondary)->id);
-        }
-        foreach($this->selectedGadgets as $gadget){
-            $o->gadgets()->attach(json_decode($gadget)->id);
-        }
     }
 
     public function updated($propertyName){

@@ -11,8 +11,8 @@
         <option value="defense">Defense
     </select>
     <br>
-    image -- <br>
-    badge -- <br>
+    image <input type="file" wire:model="image"> <br>
+    badge <input type="file" wire:model="badge"> <br>
     Ability <select  wire:model="idAbility">
                 @foreach ($abilities as $ability)
                 <option value="{{$ability->id}}">{{$ability->name}}
