@@ -32,6 +32,7 @@
     Lista Primarie :
     @foreach ( $selectedPrimaries as $selectPrimary)
         {{json_decode($selectPrimary)->name}}
+        <button wire:click="deletePrimary({{$loop->index}})"> - </button>
     @endforeach
     <br>
 
@@ -47,6 +48,7 @@
     Lista Secondarie :
     @foreach ( $selectedSecondaries as $selectSecondary)
     {{json_decode($selectSecondary)->name}}
+    <button wire:click="deleteSecondary({{$loop->index}})"> - </button>
     @endforeach
     <br>
     
@@ -62,6 +64,8 @@
     Lista Gadgets :
     @foreach ( $selectedGadgets as $selectGadget)
         {{json_decode($selectGadget)->name}}
+        <button wire:click="deleteGadget({{$loop->index}})"> - </button>
+
     @endforeach
     <br>
 

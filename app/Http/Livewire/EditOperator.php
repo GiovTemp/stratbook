@@ -48,6 +48,34 @@ class EditOperator extends Component
         $this->organization = $this->operator->organization;
         $this->gadgets = $this->operator->gadgets;
 
+        $this->selectedPrimaries = $this->operator->primaries;
+        $this->selectedSecondaries = $this->operator->secondaries;
+        $this->selectedGadgets = $this->operator->gadgets;
+
         return view('livewire.edit-operator');
+    }
+
+    
+    public function addSecondary(){
+        array_push($this->selectedSecondaries,$this->idSecondary);         
+    }
+
+    public function addPrimary(){
+        array_push($this->selectedPrimaries,$this->idPrimary);
+    }
+    
+    public function addGadget(){
+        array_push($this->selectedGadgets,$this->idGadget);
+    }
+
+
+    public function deletePrimary($primaryToDelete){
+        unset($this->selectedPrimaries[$primaryToDelete]);
+    }
+    public function deleteSecondary($secondaryToDelete){
+        unset($this->selectedSecondaries[$secondaryToDelete]);
+    }
+    public function deleteGadget($gadgetToDelete){
+        unset($this->selectedGadgets[$gadgetToDelete]);
     }
 }

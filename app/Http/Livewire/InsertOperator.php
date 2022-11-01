@@ -87,4 +87,15 @@ class InsertOperator extends Component{
     public function addGadget(){
         array_push($this->selectedGadgets,$this->idGadget);
     }
+
+
+    public function deletePrimary($primaryToDelete){
+        unset($this->selectedPrimaries[$primaryToDelete]);
+    }
+    public function deleteSecondary($secondaryToDelete){
+        unset($this->selectedSecondaries[$secondaryToDelete]);
+    }
+    public function deleteGadget($gadgetToDelete){
+        unset($this->selectedGadgets[$gadgetToDelete]);
+    }
 }
