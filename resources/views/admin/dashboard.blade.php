@@ -6,5 +6,6 @@
 <a href="{{route('admin.showOperators')}}">Lista Operatori</a>
 <a href="{{route('admin.showAbilities')}}">Lista Abilità</a>
 <a href="{{route('admin.showPrimaries')}}">Lista Primarie</a>
+<a href="{{route('admin.showSecondaries')}}">Lista Secondarie</a>
 
 @endsection

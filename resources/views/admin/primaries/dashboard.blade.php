@@ -1,7 +1,7 @@
 @extends('layout.appAdmin')
 @section('content')
 
-<h1>Dashboard Abilità</h1>
+<h1>Dashboard Primarie</h1>
 
 <a href="{{route('admin.showAddPrimaries')}}">Aggiungi Abilità</a> <br>
     @foreach ($primaries as $primary)

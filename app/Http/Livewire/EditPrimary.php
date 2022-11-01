@@ -3,9 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditPrimary extends Component
 {
+    use WithFileUploads;
+    public $primary;
     public $name;
     public $sights;
     public $firemodes;
@@ -26,5 +29,16 @@ class EditPrimary extends Component
         $this->type = $this->primary->type;
 
         return view('livewire.edit-primary');
+    }
+
+    public function save()
+    {
+        $this -> primary -> update(['name' => $this -> name, 
+                                    'sights' => $this -> sights, 
+                                    'firemodes' => $this -> firemodes,
+                                    'barrels' => $this -> barrels,
+                                    'grips' => $this -> grips,
+                                    'underbarrel' => $this -> underbarrel,
+                                    'type' => $this -> type]);
     }
 }

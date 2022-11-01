@@ -6,6 +6,7 @@ use App\Models\Map;
 use App\Models\Ability;
 use App\Models\Primary;
 use App\Models\Operator;
+use App\Models\Secondary;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -68,5 +69,9 @@ class AdminController extends Controller
 
     public function showEditPrimary(Primary $primary){
         return view('admin.primaries.edit', ['primary'=>$primary]);
+    }
+
+    public function showSecondaries(Secondary $secondary){
+        return view('admin.secondaries.dashboard');
     }
 }
