@@ -79,7 +79,15 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/insert', [AdminController::class, 'showInsertSecondaries']) -> name('admin.showAddSecondaries');
 
-        Route::get('/edit/{primary}', [AdminController::class, 'showEditSecondary']) -> name('admin.showEditSecondary');
+        Route::get('/edit/{secondary}', [AdminController::class, 'showEditSecondary']) -> name('admin.showEditSecondary');
+    });
+
+    Route::prefix('gadget')->group(function(){
+        Route::get('/', [AdminController::class, 'ShowGadget']) -> name('admin.showGadget');
+
+        Route::get('/insert', [AdminController::class, 'ShowInsertGadget']) -> name('admin.showAddGadget');
+
+        Route::get('/edit/{gadget}', [AdminController::class, 'ShowEditGadget']) -> name('admin.showEditGadget');
     });
 
 });

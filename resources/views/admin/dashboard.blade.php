@@ -7,5 +7,6 @@
 <a href="{{route('admin.showAbilities')}}">Lista Abilità</a>
 <a href="{{route('admin.showPrimaries')}}">Lista Primarie</a>
 <a href="{{route('admin.showSecondaries')}}">Lista Secondarie</a>
+<a href="{{route('admin.showGadget')}}">Lista Gadget</a>
 
 @endsection

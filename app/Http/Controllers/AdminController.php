@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Map;
+use App\Models\Gadget;
 use App\Models\Ability;
 use App\Models\Primary;
 use App\Models\Operator;
@@ -74,4 +75,25 @@ class AdminController extends Controller
     public function showSecondaries(Secondary $secondary){
         return view('admin.secondaries.dashboard');
     }
+
+    public function ShowInsertSecondaries(Secondary $secondary){
+        return view('admin.secondaries.insert');
+    }
+
+    public function ShowEditSecondary(Secondary $secondary){
+        return view('admin.secondaries.edit', ['secondary'=>$secondary]);
+    }
+
+    public function ShowGadget(Gadget $gadget){
+        return view('admin.gadget.dashboard');
+    }
+
+    public function ShowInsertGadget(Gadget $gadget){
+        return view('admin.gadget.insert');
+    }
+
+    public function ShowEditGadget(Gadget $gadget){
+        return view('admin.gadget.edit', ['gadget'=>$gadget]);
+    }
+
 }
