@@ -88,6 +88,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/insert', [AdminController::class, 'ShowInsertGadget']) -> name('admin.showAddGadget');
 
         Route::get('/edit/{gadget}', [AdminController::class, 'ShowEditGadget']) -> name('admin.showEditGadget');
+
+        Route::get('/delete/{gadget}', [AdminController::class, 'DeleteGadget']) -> name('admin.deleteGadget');
     });
 
 });

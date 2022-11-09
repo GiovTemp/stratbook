@@ -1,6 +1,6 @@
 @extends('layout.appAdmin')
 @section('content')
-<h1>Inserisci Primaria</h1>
+<h1>Inserisci Gadget</h1>
 
 <livewire:insert-gadget /> 
 

@@ -6,6 +6,7 @@
 
 @foreach ($gadgets as $gadget)
     {{$gadget -> name}} associata a  {{$gadget->operator->name ?? 'operatore non assegnato'}}<br>
+    <a href="{{route('admin.deleteGadget', compact('gadget'))}}"><button>Elimina gadget</button></a> 
     <a href="{{route('admin.showEditGadget', $gadget)}}"><button>Modifica gadget</button></a> <br>
 @endforeach
 

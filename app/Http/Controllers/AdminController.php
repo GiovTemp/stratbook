@@ -96,4 +96,8 @@ class AdminController extends Controller
         return view('admin.gadget.edit', ['gadget'=>$gadget]);
     }
 
+    public function DeleteGadget(Gadget $gadget){
+        $gadget -> delete();
+    }
+
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('primaries_images', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->foreignId('ability_id')->constrained()->onDelete('cascade');
+            $table->foreignId('primary_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

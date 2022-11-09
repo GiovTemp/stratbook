@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Gadget;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -12,12 +13,13 @@ class InsertGadget extends Component
     public $description;
     public $uses;
     public $image;
-    public $assignment;
+    // public $assignment;
 
     protected $rules = [
         'name' => 'required|min:4',
+        'description' => 'required',
         'uses' => 'required|integer',
-        'image' => 'image|max:1080',
+        'image' => 'max:1080',
     ];
 
     public function render()
@@ -27,6 +29,9 @@ class InsertGadget extends Component
 
     public function save(){
         $this -> validate();
-        Gadget::create(['name' => $this -> name, 'uses' => $this -> uses, 'description' => $this -> description, $this->image->storeAs('ability_images', $this -> name.'.'.$this->image->getClientOriginalExtension())]);
+        Gadget::create(['name' => $this -> name, 
+                        'uses' => $this -> uses, 
+                        'description' => $this -> description, 
+                        'image' => $this->image->storeAs('gadget_images', $this -> name.'.'.$this->image->getClientOriginalExtension())]);
     }
 }

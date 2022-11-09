@@ -5,9 +5,9 @@ namespace App\Models\Images;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PrimaryImage extends Model
+class GadgetImage extends Model
 {
     use HasFactory;
 
-    protected $table = "primary_images";
+    protected $table = "gadget_images";
 }

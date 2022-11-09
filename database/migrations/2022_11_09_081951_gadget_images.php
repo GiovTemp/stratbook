@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gadgets', function (Blueprint $table) {
+        Schema::create('gadget_images', function (Blueprint $table) {
             $table->id();
-            $table->string('_id') -> nullable();
-            $table->string('name');
-            $table->longText('description');
-            $table->string('image');
-            $table->string('assignment') -> nullable();
-            $table->integer('uses');
-            $table->integer('__v') -> nullable();
+            $table->string('path');
+            $table->foreignId('gadget_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
-
-
     }
 
     /**
@@ -35,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gadgets');
+        //
     }
 };
