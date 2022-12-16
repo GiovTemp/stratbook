@@ -27,7 +27,7 @@ Route::get('/home', [HomeController::class, 'Home']);
 Route::get('/dashboard', [UserController::class, 'Dashboard']);
 
 Route::prefix('admin')->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'Dashboard']);
+    Route::get('/dashboard', [AdminController::class, 'Dashboard'])->name('admin.dashboard');
 
 
     Route::prefix('maps')->group(function () {
