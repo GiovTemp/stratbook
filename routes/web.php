@@ -110,6 +110,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/prova', [HomeController::class,'prova']);
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
