@@ -109,3 +109,7 @@ Route::prefix('admin')->group(function () {
     Route::get('auth/facebook/callback', [FacebookLoginController::class, 'loginWithFacebook']);
 
     Route::get('/prova', [HomeController::class,'prova']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

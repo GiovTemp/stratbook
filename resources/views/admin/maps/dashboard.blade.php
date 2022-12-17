@@ -2,6 +2,12 @@
 @section('content')
 <h1>Dashboard Mappe</h1>
 
+@if (session()->has('status'))
+<div class="flex flex-row justify-center my-2 alert alert-success">
+  {{session('status')}}
+</div>
+@endif
+
 <a href="{{route('admin.showAddMap')}}">Inserisci nuova mappa </a> <br>
 
 @foreach ($maps as $map)

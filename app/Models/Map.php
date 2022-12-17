@@ -12,13 +12,12 @@ class Map extends Model
 
     protected $fillable=[
         'name',
-        'images',
         'description',
         'year'
     ];
 
-    public function Images()
+    public function images()
     {
-        return $this->belongsTo(MapImage::class);
+        return $this->hasMany(MapImage::class);
     }
 }

@@ -97,7 +97,7 @@ class EditOperator extends Component
      * Edit the Operator
      *
      * @param  null
-     * @return null
+     * @return Redirect
      */
     public function edit(){
         //TODO: add validation rules
@@ -105,7 +105,7 @@ class EditOperator extends Component
         //save the new attributes
         $this->operator->save();
 
-        session()->flash('status','Operatore modificaro correttamente');
+        session()->flash('status','Operatore modificato correttamente');
         return redirect(route('admin.showOperators'));
     }
     
