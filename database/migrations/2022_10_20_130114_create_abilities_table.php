@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('_id') -> nullable();
             $table->string('name');
             $table->longText('description') -> nullable();
-            $table->longText('images') -> nullable();
             $table->integer('uses') -> nullable();
             $table->integer('__v') -> nullable();
             $table->timestamps();

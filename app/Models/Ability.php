@@ -13,7 +13,6 @@ class Ability extends Model
         '_id',
         'name',
         'description',
-        'images',
         'uses',
         '__v'
     ];
@@ -25,6 +24,6 @@ class Ability extends Model
 
     public function images()
     {
-        return $this->belongsTo(AbilityImage::class);
+        return $this->hasMany(AbilityImage::class);
     }
 }

@@ -2,6 +2,12 @@
 @section('content')
 <h1>Dashboard Abilità</h1>
 
+@if (session()->has('status'))
+<div class="flex flex-row justify-center my-2 alert alert-success">
+  {{session('status')}}
+</div>
+@endif
+
 <a href="{{route('admin.showAddAbilities')}}">Inserisci nuova abilità</a> <br>
 
 @foreach ($abilities as $ability)
